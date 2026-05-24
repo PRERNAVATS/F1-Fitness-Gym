@@ -1,0 +1,176 @@
+<!-- CONTACT HEADER -->
+<section class="contact-header text-center">
+  <div class="container">
+    <p class="section-subtitle">Reach Out</p>
+    <h1 class="display-4 fw-black text-white">Contact Us</h1>
+    <p class="text-silver max-width-600 mx-auto mt-2 leading-relaxed">
+      Have questions about our plans or facilities? Send us an enquiry or drop by our location.
+    </p>
+  </div>
+</section>
+
+<!-- INFO CARDS -->
+<section class="section-padding pb-0">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Card 1: Location -->
+      <div class="col-md-4">
+        <div class="contact-info-card">
+          <div class="contact-info-icon-box">
+            <i class="fa-solid fa-map-location-dot"></i>
+          </div>
+          <h4 class="fs-5 text-white mb-2">Our Location</h4>
+          <p class="text-silver mb-0 small">
+            237 Second Floor Orbit Plaza, Crossings Republik, Ghaziabad, Uttar Pradesh 201016
+          </p>
+        </div>
+      </div>
+      <!-- Card 2: Phone -->
+      <div class="col-md-4">
+        <div class="contact-info-card">
+          <div class="contact-info-icon-box">
+            <i class="fa-solid fa-phone-volume"></i>
+          </div>
+          <h4 class="fs-5 text-white mb-2">Call Us Directly</h4>
+          <p class="text-silver mb-0 small">
+            Phone: 084488 50930<br>
+            Direct: +91 8448850930
+          </p>
+        </div>
+      </div>
+      <!-- Card 3: Hours -->
+      <div class="col-md-4">
+        <div class="contact-info-card">
+          <div class="contact-info-icon-box">
+            <i class="fa-solid fa-business-time"></i>
+          </div>
+          <h4 class="fs-5 text-white mb-2">Working Hours</h4>
+          <p class="text-silver mb-0 small">
+            Monday - Saturday: 5 AM - 11 PM<br>
+            Sunday: 6 AM - 8 PM (Open till 11 PM weekdays)
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM AND MAP SECTION -->
+<section class="section-padding">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Col 1: Form -->
+      <div class="col-lg-6">
+        <div class="contact-form-card">
+          <h3 class="text-white mb-4 fs-4 font-display fw-bold">Send an Enquiry</h3>
+          
+          <!-- Banners -->
+          <div *ngIf="submitSuccess" class="alert alert-success bg-dark border border-success text-success mb-4" role="alert">
+            <i class="fa-solid fa-circle-check me-2"></i> Your enquiry was submitted successfully! Our team will contact you shortly.
+          </div>
+          <div *ngIf="submitError" class="alert alert-danger bg-dark border border-danger text-danger mb-4" role="alert">
+            <i class="fa-solid fa-circle-exclamation me-2"></i> {{ submitError }}
+          </div>
+
+          <form #enquiryForm="ngForm" (ngSubmit)="onSubmit(enquiryForm)" novalidate>
+            <!-- Name -->
+            <div class="mb-3">
+              <label for="name" class="form-label text-silver small">Full Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="form-control form-control-f1" 
+                placeholder="Enter your full name"
+                required
+                minlength="2"
+                [(ngModel)]="enquiry.name"
+                #nameModel="ngModel">
+              <div *ngIf="nameModel.invalid && (nameModel.dirty || nameModel.touched)" class="text-danger small mt-1">
+                <span *ngIf="nameModel.errors?.['required']">Name is required.</span>
+                <span *ngIf="nameModel.errors?.['minlength']">Name must be at least 2 characters.</span>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-3">
+              <label for="phone" class="form-label text-silver small">Phone Number</label>
+              <input 
+                type="text" 
+                id="phone" 
+                name="phone" 
+                class="form-control form-control-f1" 
+                placeholder="10-digit mobile number"
+                required
+                pattern="^[0-9\s-]{10,15}$"
+                [(ngModel)]="enquiry.phone"
+                #phoneModel="ngModel">
+              <div *ngIf="phoneModel.invalid && (phoneModel.dirty || phoneModel.touched)" class="text-danger small mt-1">
+                <span *ngIf="phoneModel.errors?.['required']">Phone number is required.</span>
+                <span *ngIf="phoneModel.errors?.['pattern']">Please enter a valid 10-15 digit phone number.</span>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label text-silver small">Email Address</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-control form-control-f1" 
+                placeholder="name@example.com"
+                required
+                email
+                [(ngModel)]="enquiry.email"
+                #emailModel="ngModel">
+              <div *ngIf="emailModel.invalid && (emailModel.dirty || emailModel.touched)" class="text-danger small mt-1">
+                <span *ngIf="emailModel.errors?.['required']">Email is required.</span>
+                <span *ngIf="emailModel.errors?.['email']">Please enter a valid email address.</span>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-4">
+              <label for="message" class="form-label text-silver small">Message / Query</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="4" 
+                class="form-control form-control-f1" 
+                placeholder="Describe your training goals or question..."
+                required
+                maxlength="2000"
+                [(ngModel)]="enquiry.message"
+                #msgModel="ngModel"></textarea>
+              <div *ngIf="msgModel.invalid && (msgModel.dirty || msgModel.touched)" class="text-danger small mt-1">
+                <span *ngIf="msgModel.errors?.['required']">Message cannot be empty.</span>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <button 
+              type="submit" 
+              class="btn btn-f1-primary w-100"
+              [disabled]="enquiryForm.invalid || isSubmitting">
+              <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              {{ isSubmitting ? 'Sending...' : 'Submit Enquiry' }}
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Col 2: Map -->
+      <div class="col-lg-6">
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5694207865917!2d77.42436447630248!3d28.612660175677464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cee22be3f5e5b%3A0xe5a3c051a66cc15d!2sOrbit%20Plaza%2C%20Crossings%20Republik%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201016!5e0!3m2!1sen!2sin!4v1716500000000!5m2!1sen!2sin" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

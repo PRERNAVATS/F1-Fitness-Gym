@@ -1,0 +1,203 @@
+/* F1 FITNESS GLOBAL DESIGN SYSTEM */
+
+:root {
+  --bg-primary: #080808;
+  --bg-secondary: #141414;
+  --bg-card: #1c1c1e;
+  --accent-red: #e60012;
+  --accent-red-hover: #b3000e;
+  --accent-red-glow: rgba(230, 0, 18, 0.4);
+  --text-white: #ffffff;
+  --text-silver: #a0a0a5;
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --transition-speed: 0.3s;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-white);
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .display-font {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--text-white);
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  transition: all var(--transition-speed) ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-card);
+  border-radius: 4px;
+  border: 1px solid var(--accent-red);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-red);
+}
+
+/* Premium Gradients */
+.grad-red-black {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.text-gradient-red {
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-red) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Premium Buttons */
+.btn-f1-primary {
+  background-color: var(--accent-red);
+  color: var(--text-white) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 28px;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  transition: all var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 15px var(--accent-red-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-f1-primary:hover {
+  background-color: transparent;
+  border-color: var(--accent-red);
+  box-shadow: 0 6px 20px rgba(230, 0, 18, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-f1-outline {
+  background-color: transparent;
+  color: var(--text-white) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 28px;
+  border-radius: 4px;
+  border: 2px solid var(--text-white);
+  transition: all var(--transition-speed) ease;
+}
+
+.btn-f1-outline:hover {
+  background-color: var(--text-white);
+  color: var(--bg-primary) !important;
+  transform: translateY(-2px);
+}
+
+/* Cards Design */
+.f1-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 24px;
+  transition: all var(--transition-speed) cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.f1-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-red);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--transition-speed) ease;
+}
+
+.f1-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(230, 0, 18, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(230, 0, 18, 0.1);
+}
+
+.f1-card:hover::before {
+  transform: scaleY(1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Section Spacing */
+.section-padding {
+  padding: 80px 0;
+}
+
+.section-title-wrap {
+  margin-bottom: 50px;
+}
+
+.section-subtitle {
+  color: var(--accent-red);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-red);
+}
+
+.section-title-center {
+  text-align: center;
+}
+
+.section-title-center .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}

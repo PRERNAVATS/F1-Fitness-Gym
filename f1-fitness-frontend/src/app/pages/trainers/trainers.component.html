@@ -1,0 +1,51 @@
+<!-- TRAINERS HEADER -->
+<section class="trainers-header text-center">
+  <div class="container">
+    <p class="section-subtitle">Certified Professionals</p>
+    <h1 class="display-4 fw-black text-white">Our Certified Trainers</h1>
+    <p class="text-silver max-width-600 mx-auto mt-2 leading-relaxed">
+      Learn from elite coaches who are committed to your growth. Experienced, supportive, and result-oriented.
+    </p>
+  </div>
+</section>
+
+<!-- TRAINERS LISTING -->
+<section class="section-padding">
+  <div class="container">
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoading" class="text-center py-5">
+      <div class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoading && trainers.length === 0" class="text-center py-5 text-secondary">
+      <p>No trainers available at the moment. Please check back later.</p>
+    </div>
+
+    <!-- Trainers Grid -->
+    <div *ngIf="!isLoading && trainers.length > 0" class="row g-4 justify-content-center">
+      <div *ngFor="let trainer of trainers" class="col-lg-4 col-md-6">
+        <div class="trainer-page-card">
+          <div class="trainer-page-img-wrap">
+            <img [src]="trainer.imageUrl" [alt]="trainer.name" class="trainer-page-img">
+          </div>
+          <div class="trainer-page-content">
+            <h3 class="trainer-page-name text-white mb-1">{{ trainer.name }}</h3>
+            <p class="trainer-page-spec">{{ trainer.specialization }}</p>
+            
+            <div class="trainer-page-exp">
+              <i class="fa-solid fa-clock-rotate-left text-danger"></i>
+              <span>{{ trainer.experience }} Professional Experience</span>
+            </div>
+            
+            <hr class="border-secondary my-3">
+            
+            <p class="trainer-page-bio">{{ trainer.bio }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

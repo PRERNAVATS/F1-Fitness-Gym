@@ -1,0 +1,32 @@
+.plans-header {
+  background: linear-gradient(rgba(8, 8, 8, 0.85), rgba(8, 8, 8, 0.95)), 
+              url('/assets/images/gallery-3.jpg') center/cover no-repeat;
+  padding: 100px 0 60px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feature-badge {
+  color: var(--accent-red);
+  margin-right: 10px;
+}
+
+.price-number {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--text-white);
+}
+
+.price-currency {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  margin-right: 2px;
+}
+
+.price-duration {
+  color: var(--text-silver);
+  font-size: 1.1rem;
+  font-family: var(--font-display);
+}

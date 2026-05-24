@@ -1,0 +1,40 @@
+<!-- GALLERY HEADER -->
+<section class="gallery-header text-center">
+  <div class="container">
+    <p class="section-subtitle">Visual Tour</p>
+    <h1 class="display-4 fw-black text-white">Gym Gallery</h1>
+    <p class="text-silver max-width-600 mx-auto mt-2 leading-relaxed">
+      Explore the spaces and equipment engineered for your ultimate physical progress.
+    </p>
+  </div>
+</section>
+
+<!-- GALLERY GRID LISTING -->
+<section class="section-padding">
+  <div class="container">
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoading" class="text-center py-5">
+      <div class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoading && images.length === 0" class="text-center py-5 text-secondary">
+      <p>No gallery images available at the moment. Please check back later.</p>
+    </div>
+
+    <!-- Images Grid -->
+    <div *ngIf="!isLoading && images.length > 0" class="row g-4 justify-content-center">
+      <div *ngFor="let img of images" class="col-lg-4 col-md-6">
+        <div class="gallery-grid-item">
+          <img [src]="img.imageUrl" [alt]="img.title" class="gallery-grid-img">
+          <div class="gallery-grid-overlay">
+            <h3 class="gallery-grid-title">{{ img.title }}</h3>
+            <p class="gallery-grid-desc">{{ img.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

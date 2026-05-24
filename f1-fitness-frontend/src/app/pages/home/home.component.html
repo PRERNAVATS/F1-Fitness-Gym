@@ -1,0 +1,247 @@
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-skew-decor"></div>
+  <div class="container hero-content">
+    <div class="row align-items-center">
+      <div class="col-lg-8 animate-fade-in-up">
+        <p class="hero-subtitle">High-Octane Fitness</p>
+        <h1 class="hero-title text-gradient-red">Transform Your Body At F1 Fitness</h1>
+        <p class="hero-description">
+          Welcome to the ultimate gym and fitness center in Crossings Republik, Ghaziabad. We provide state-of-the-art strength training equipment, a dedicated cardio arena, and personal coaching designed to help you smash your fitness goals.
+        </p>
+        <div class="hero-btns">
+          <a routerLink="/plans" class="btn btn-f1-primary">Join Now <i class="fa-solid fa-arrow-right ms-2"></i></a>
+          <a routerLink="/about" class="btn btn-f1-outline">View Plans</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-section">
+  <div class="container">
+    <div class="row">
+      <!-- Stat 1 -->
+      <div class="col-md-3 col-sm-6 stat-item stat-divider">
+        <div class="stat-number">4.6 <i class="fa-solid fa-star"></i></div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <!-- Stat 2 -->
+      <div class="col-md-3 col-sm-6 stat-item stat-divider">
+        <div class="stat-number">457+</div>
+        <div class="stat-label">Google Reviews</div>
+      </div>
+      <!-- Stat 3 -->
+      <div class="col-md-3 col-sm-6 stat-item stat-divider">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Expert Trainers</div>
+      </div>
+      <!-- Stat 4 -->
+      <div class="col-md-3 col-sm-6 stat-item">
+        <div class="stat-number">11 PM</div>
+        <div class="stat-label">Open Till 11 PM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT PREVIEW -->
+<section class="section-padding">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="about-preview-img-wrap">
+          <img src="assets/images/gallery-1.jpg" alt="F1 Fitness Gym Floor" class="about-preview-img">
+          <div class="about-preview-badge"><i class="fa-solid fa-award me-2"></i> Premium Facility</div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="section-title-wrap">
+          <p class="section-subtitle">Who We Are</p>
+          <h2 class="section-title">Fuel Your Passion</h2>
+        </div>
+        <p class="text-secondary mb-4 leading-relaxed">
+          At F1 Fitness, we believe physical transformation is the engine of a high-performance life. Located in Orbit Plaza, Crossings Republik, we offer a spacious gym floor packed with commercial-grade strength machinery, a functional HIIT turf, and top-tier cardio stations.
+        </p>
+        <div class="row g-4 mb-4">
+          <div class="col-sm-6 d-flex align-items-start gap-3">
+            <i class="fa-solid fa-dumbbell text-danger fs-4 mt-1"></i>
+            <div>
+              <h5 class="mb-1 text-white fs-6">Modern Equipment</h5>
+              <p class="text-secondary small mb-0">Biomechanically precise strength machines.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 d-flex align-items-start gap-3">
+            <i class="fa-solid fa-heart-pulse text-danger fs-4 mt-1"></i>
+            <div>
+              <h5 class="mb-1 text-white fs-6">Cardio & HIIT</h5>
+              <p class="text-secondary small mb-0">High-performance treadmills & spin zones.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 d-flex align-items-start gap-3">
+            <i class="fa-solid fa-user-shield text-danger fs-4 mt-1"></i>
+            <div>
+              <h5 class="mb-1 text-white fs-6">Personal Coaching</h5>
+              <p class="text-secondary small mb-0">Custom diet and workout regimes.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 d-flex align-items-start gap-3">
+            <i class="fa-solid fa-bolt text-danger fs-4 mt-1"></i>
+            <div>
+              <h5 class="mb-1 text-white fs-6">Transformation</h5>
+              <p class="text-secondary small mb-0">Guaranteed physical and mental upgrades.</p>
+            </div>
+          </div>
+        </div>
+        <a routerLink="/about" class="btn btn-f1-primary btn-sm">Read More About Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP PLANS PREVIEW -->
+<section class="section-padding bg-secondary">
+  <div class="container">
+    <div class="section-title-wrap section-title-center">
+      <p class="section-subtitle">Membership Plans</p>
+      <h2 class="section-title">Choose Your Speed</h2>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoadingPlans" class="text-center py-5">
+      <div class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Error/Empty State -->
+    <div *ngIf="!isLoadingPlans && plans.length === 0" class="text-center py-5 text-secondary">
+      <p>No active membership plans available at the moment. Please check back later.</p>
+    </div>
+
+    <!-- Plans Cards -->
+    <div *ngIf="!isLoadingPlans && plans.length > 0" class="row g-4 justify-content-center">
+      <div *ngFor="let plan of plans" class="col-lg-4 col-md-6">
+        <div class="f1-card d-flex flex-column justify-content-between">
+          <div>
+            <h4 class="text-white mb-2">{{ plan.planName }}</h4>
+            <span class="badge bg-dark border border-danger text-danger mb-3">{{ plan.duration }}</span>
+            <div class="plan-card-price">
+              <span class="price">₹{{ plan.price | number }}</span>
+              <span class="duration"> / {{ plan.duration }}</span>
+            </div>
+            <hr class="border-secondary mb-4">
+            <ul class="list-unstyled text-silver mb-4">
+              <li *ngFor="let feat of plan.features" class="mb-2">
+                <i class="fa-solid fa-circle-check feature-badge"></i> {{ feat }}
+              </li>
+            </ul>
+          </div>
+          <a routerLink="/contact" class="btn btn-f1-primary w-100 mt-3">Select Plan</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a routerLink="/plans" class="btn btn-f1-outline">View All Membership Plans</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINERS PREVIEW -->
+<section class="section-padding">
+  <div class="container">
+    <div class="section-title-wrap section-title-center">
+      <p class="section-subtitle">Expert Coaches</p>
+      <h2 class="section-title">Meet the Crew</h2>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoadingTrainers" class="text-center py-5">
+      <div class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Trainers Grid -->
+    <div *ngIf="!isLoadingTrainers && trainers.length > 0" class="row g-4 justify-content-center">
+      <div *ngFor="let trainer of trainers" class="col-lg-4 col-md-6">
+        <div class="trainer-card">
+          <div class="trainer-img-wrap">
+            <img [src]="trainer.imageUrl" [alt]="trainer.name" class="trainer-img">
+            <div class="trainer-overlay">
+              <h4 class="trainer-name text-white">{{ trainer.name }}</h4>
+              <p class="trainer-spec">{{ trainer.specialization }}</p>
+              <div class="trainer-experience">
+                <i class="fa-solid fa-business-time text-danger me-2"></i> {{ trainer.experience }} Experience
+              </div>
+              <p class="trainer-bio">{{ trainer.bio }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a routerLink="/trainers" class="btn btn-f1-outline">View All Certified Trainers</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY PREVIEW -->
+<section class="section-padding bg-secondary">
+  <div class="container">
+    <div class="section-title-wrap section-title-center">
+      <p class="section-subtitle">Gym Gallery</p>
+      <h2 class="section-title">Tour Our Facility</h2>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoadingGallery" class="text-center py-5">
+      <div class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div *ngIf="!isLoadingGallery && galleryImages.length > 0" class="row g-4 justify-content-center">
+      <div *ngFor="let img of galleryImages" class="col-lg-4 col-md-6">
+        <div class="gallery-item">
+          <img [src]="img.imageUrl" [alt]="img.title" class="gallery-img">
+          <div class="gallery-item-overlay">
+            <h4 class="gallery-title">{{ img.title }}</h4>
+            <p class="gallery-desc">{{ img.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a routerLink="/gallery" class="btn btn-f1-outline">Explore Full Gallery</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA SECTION -->
+<section class="section-padding container">
+  <div class="contact-cta">
+    <h2>Ready to Shift Gears?</h2>
+    <p>Get in touch with F1 Fitness today and book your free trial session. Experience the premium gym space in Crossings Republik.</p>
+    <div class="contact-cta-info">
+      <div class="contact-cta-item">
+        <i class="fa-solid fa-phone text-white"></i>
+        <span>Call: +91 084488 50930</span>
+      </div>
+      <div class="contact-cta-item">
+        <i class="fa-solid fa-location-dot text-white"></i>
+        <span>Crossings Republik, Ghaziabad</span>
+      </div>
+      <div class="contact-cta-item">
+        <i class="fa-solid fa-clock text-white"></i>
+        <span>Open till 11 PM</span>
+      </div>
+    </div>
+    <a routerLink="/contact" class="btn btn-f1-outline border-white">Book Free Trial</a>
+  </div>
+</section>

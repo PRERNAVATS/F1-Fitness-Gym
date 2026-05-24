@@ -1,0 +1,219 @@
+/* NAVBAR STYLING */
+.f1-navbar {
+  background-color: rgba(8, 8, 8, 0.9);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 2px solid var(--accent-red);
+  padding: 15px 0;
+  z-index: 1000;
+  transition: all var(--transition-speed) ease;
+}
+
+.f1-brand-logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.f1-brand-logo span {
+  color: var(--accent-red);
+  font-style: italic;
+  position: relative;
+}
+
+.f1-brand-logo span::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: -5px;
+  width: 15px;
+  height: 3px;
+  background-color: var(--text-white);
+  transform: skewX(-20deg);
+}
+
+.nav-link-f1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--text-silver) !important;
+  letter-spacing: 1px;
+  padding: 8px 16px !important;
+  position: relative;
+}
+
+.nav-link-f1:hover, .nav-link-f1.active-f1 {
+  color: var(--text-white) !important;
+}
+
+.nav-link-f1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-red);
+  transition: width var(--transition-speed) ease;
+}
+
+.nav-link-f1:hover::after, .nav-link-f1.active-f1::after {
+  width: calc(100% - 32px);
+}
+
+.nav-btn {
+  margin-left: 15px;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+  padding: 6px 10px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 10px var(--accent-red-glow);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* FOOTER STYLING */
+.f1-footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 70px 0 20px 0;
+  position: relative;
+}
+
+.f1-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent-red) 50%, transparent 100%);
+}
+
+.footer-logo {
+  margin-bottom: 20px;
+}
+
+.footer-desc {
+  color: var(--text-silver);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-heading {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--accent-red);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-silver);
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  color: var(--accent-red);
+  padding-left: 5px;
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.contact-item i {
+  color: var(--accent-red);
+  font-size: 1.1rem;
+  margin-top: 3px;
+}
+
+.contact-item p {
+  color: var(--text-silver);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-card);
+  border-radius: 4px;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-speed) ease;
+}
+
+.social-btn:hover {
+  background-color: var(--accent-red);
+  transform: translateY(-3px);
+  color: var(--text-white);
+}
+
+.footer-bottom {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom p {
+  color: var(--text-silver);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-bottom a {
+  color: var(--text-white);
+}
+
+.footer-bottom a:hover {
+  color: var(--accent-red);
+}
