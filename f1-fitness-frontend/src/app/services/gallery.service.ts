@@ -7,7 +7,7 @@ import { ApiResponse, GalleryImage } from '../models/gym.model';
   providedIn: 'root'
 })
 export class GalleryService {
-  private baseUrl = 'http://localhost:8089/api/gallery';
+  private baseUrl = 'https://f1-fitness-gym.onrender.com/api/gallery';
 
   constructor(private http: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { ApiResponse, MembershipPlan } from '../models/gym.model';
   providedIn: 'root'
 })
 export class MembershipPlanService {
-  private baseUrl = 'http://localhost:8089/api/plans';
+  private baseUrl = 'https://f1-fitness-gym.onrender.com/api/plans';
 
   constructor(private http: HttpClient) { }
 

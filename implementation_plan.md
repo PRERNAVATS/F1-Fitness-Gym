@@ -114,7 +114,7 @@ Global styling for dark background, premium red gradients, custom scrollbars, an
 - Run `ng build --configuration=production` to check for compilation issues in Angular.
 
 ### Manual Verification
-- We will boot the backend at http://localhost:8089 and check API endpoints (e.g. GET `/api/plans`, GET `/api/trainers`).
+- We will boot the backend at https://f1-fitness-gym.onrender.com and check API endpoints (e.g. GET `/api/plans`, GET `/api/trainers`).
 - We will boot the frontend at http://localhost:4200 using `npm run dev` or `ng serve --port 4200`.
 - We will visually verify the landing page responsive layout and navigation.
 - We will fill out the contact form and verify in the database (or via console logging/GET endpoint) that the contact enquiry is correctly captured.

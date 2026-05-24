@@ -7,7 +7,7 @@ import { ApiResponse, ContactEnquiry } from '../models/gym.model';
   providedIn: 'root'
 })
 export class ContactService {
-  private baseUrl = 'http://localhost:8089/api/enquiries';
+  private baseUrl = 'https://f1-fitness-gym.onrender.com/api/enquiries';
 
   constructor(private http: HttpClient) { }
 

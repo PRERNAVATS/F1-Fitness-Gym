@@ -7,7 +7,7 @@ import { ApiResponse, Trainer } from '../models/gym.model';
   providedIn: 'root'
 })
 export class TrainerService {
-  private baseUrl = 'http://localhost:8089/api/trainers';
+  private baseUrl = 'https://f1-fitness-gym.onrender.com/api/trainers';
 
   constructor(private http: HttpClient) { }
 
